@@ -6,6 +6,7 @@ class CreateAssignments < ActiveRecord::Migration[6.1]
       t.integer :grade
       t.integer :teacher_id
       t.integer :student_id
+      t.datetime :created_at
     end
   end
 end
