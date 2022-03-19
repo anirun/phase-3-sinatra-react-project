@@ -24,26 +24,26 @@ seamus = Student.create(name: "Seamus Finnegan", grade: "7")
 pansy = Student.create(name: "Pansy Parkinson", grade: "8")
 gregory = Student.create(name: "Gregory Goyle", grade: "8")
 
-research1 = Assignment.create(name: "Research", description: "Research dittany in 'One Thousand Magical Herbs and Fungi'", points_possible: 5, teacher: snape , student: harry)
-research2 = Assignment.create(name: "Research", description: "Research dittany in 'One Thousand Magical Herbs and Fungi'", points_possible: 5, teacher: snape , student: hermione)
-research3 = Assignment.create(name: "Research", description: "Research dittany in 'One Thousand Magical Herbs and Fungi'", points_possible: 5, teacher: snape , student: ron)
+research1 = Assignment.create(name: "Research", description: "Research dittany in 'One Thousand Magical Herbs and Fungi'", teacher: snape , student: harry)
+research2 = Assignment.create(name: "Research", description: "Research dittany in 'One Thousand Magical Herbs and Fungi'", teacher: snape , student: hermione)
+research3 = Assignment.create(name: "Research", description: "Research dittany in 'One Thousand Magical Herbs and Fungi'", teacher: snape , student: ron)
 
-essay1 = Assignment.create(name: "Essay", description: "To write an essay about the Medieval Assembly of European Wizards", points_possible: 50, teacher: gilderoy, student: cedric)
-essay2 = Assignment.create(name: "Essay", description: "To write an essay about the Medieval Assembly of European Wizards", points_possible: 50, teacher: gilderoy, student: seamus)
+essay1 = Assignment.create(name: "Essay", description: "To write an essay about the Medieval Assembly of European Wizards",  teacher: gilderoy, student: cedric)
+essay2 = Assignment.create(name: "Essay", description: "To write an essay about the Medieval Assembly of European Wizards",  teacher: gilderoy, student: seamus)
 
-read1 = Assignment.create(name: "Read", description: "Read 'Home Life and Social Habits of British Muggles'", points_possible: 5, teacher: quirrell, student: pansy)
-read2 = Assignment.create(name: "Read", description: "Read 'Home Life and Social Habits of British Muggles'", points_possible: 5, teacher: quirrell, student: gregory)
+read1 = Assignment.create(name: "Read", description: "Read 'Home Life and Social Habits of British Muggles'", teacher: quirrell, student: pansy)
+read2 = Assignment.create(name: "Read", description: "Read 'Home Life and Social Habits of British Muggles'", teacher: quirrell, student: gregory)
 
-charms1 = Assignment.create(name: "Summoning Charms", description: "Read three books about summoning charms", points_possible: 5, teacher: filius, student: hermione)
-charms2 = Assignment.create(name: "Summoning Charms", description: "Read three books about summoning charms", points_possible: 5, teacher: filius, student: cedric)
-charms3 = Assignment.create(name: "Summoning Charms", description: "Read three books about summoning charms", points_possible: 5, teacher: filius, student: seamus)
+charms1 = Assignment.create(name: "Summoning Charms", description: "Read three books about summoning charms", teacher: filius, student: hermione)
+charms2 = Assignment.create(name: "Summoning Charms", description: "Read three books about summoning charms", teacher: filius, student: cedric)
+charms3 = Assignment.create(name: "Summoning Charms", description: "Read three books about summoning charms", teacher: filius, student: seamus)
 
-planets1 = Assignment.create(name: "Planetary Chart", description: "Produce a personal chart detailing how planetary movements affect the individual student's fate.", points_possible: 10, teacher: sybill, student: hermione)
-planets2 = Assignment.create(name: "Planetary Chart", description: "Produce a personal chart detailing how planetary movements affect the individual student's fate.", points_possible: 10, teacher: sybill, student: harry)
-planets3 = Assignment.create(name: "Planetary Chart", description: "Produce a personal chart detailing how planetary movements affect the individual student's fate.", points_possible: 10, teacher: sybill, student: ron)
+planets1 = Assignment.create(name: "Planetary Chart", description: "Produce a personal chart detailing how planetary movements affect the individual student's fate.", teacher: sybill, student: hermione)
+planets2 = Assignment.create(name: "Planetary Chart", description: "Produce a personal chart detailing how planetary movements affect the individual student's fate.", teacher: sybill, student: harry)
+planets3 = Assignment.create(name: "Planetary Chart", description: "Produce a personal chart detailing how planetary movements affect the individual student's fate.", teacher: sybill, student: ron)
 
-shrubs1 = Assignment.create(name: "Self-Fertilising Shrubs", description: "Write an essay on them.", points_possible: 30, teacher: pomona, student: hermione)
-shrubs2 = Assignment.create(name: "Self-Fertilising Shrubs", description: "Write an essay on them.", points_possible: 30, teacher: pomona, student: pansy)
-shrubs3 = Assignment.create(name: "Self-Fertilising Shrubs", description: "Write an essay on them.", points_possible: 30, teacher: pomona, student: gregory)
+shrubs1 = Assignment.create(name: "Self-Fertilising Shrubs", description: "Write an essay on them.", teacher: pomona, student: hermione)
+shrubs2 = Assignment.create(name: "Self-Fertilising Shrubs", description: "Write an essay on them.", teacher: pomona, student: pansy)
+shrubs3 = Assignment.create(name: "Self-Fertilising Shrubs", description: "Write an essay on them.", teacher: pomona, student: gregory)
 
 puts "✅ Done seeding!"

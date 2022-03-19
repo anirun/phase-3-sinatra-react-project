@@ -4,9 +4,8 @@ class CreateAssignments < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :description
       t.boolean :completed, default: false
-      t.integer :points_possible
-      t.integer :points_scored, default: 0
-      t.integer :percent_grade
+      t.boolean :graded?, default: false
+      t.integer :grade, default: 0
       t.integer :teacher_id
       t.integer :student_id
     end
