@@ -36,12 +36,12 @@ class Student < ActiveRecord::Base
         end
     end
 
-        # student's overall grade??
+        # student's overall grade?
     def overall_grade
         percentage = self.assignments.average(:grade).to_i
         grading_system(percentage)
     end
-
+        # student's grade in a specific teacher's class?
     def class_grade(teacher)
         percentage = self.assignments.where(teacher: teacher)&.average(:grade).to_i
         grading_system(percentage)
