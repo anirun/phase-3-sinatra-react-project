@@ -21,6 +21,7 @@ class ApplicationController < Sinatra::Base
       graded: params[:grade],
       grade: params[:grade]
     )
+  end
 
   get "/students" do
     students = Student.all.order(name: :asc)
