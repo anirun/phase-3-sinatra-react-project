@@ -4,24 +4,31 @@ class Teacher < ActiveRecord::Base
 
     # class methods
         # who has the most students?
-        # who has the least grading to do?
+    def most_students
+        self.all.max_by { |teacher| teacher.students.length }
+    end
 
     # instance methods
         # how many assignments do they have left to grade?
         def left_to_grade
-            self.assignments.where(percent_grade: nil)
+            self.assignments.where(completed: false)
         end
+
         # give student an assignment
-        def assign_assignment(name, points_possible, student)
+        def assign_assignment(name, student)
             Assignment.create(
-                name: name, 
-                points_possible: points_possible, 
+                name: name,
+                teacher: self,
                 student: student
                 )
         end
+
         # grade a student's assignment
         def grade_assignment(assignment, grade)
-            assignment.update(points_scored: grade)
+            assignment.update(
+                graded?: true,
+                grade: grade
+            )
         end
     
 end

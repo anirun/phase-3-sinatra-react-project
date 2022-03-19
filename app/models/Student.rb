@@ -10,10 +10,9 @@ class Student < ActiveRecord::Base
 
     # instance method
         # start an assignment
-    def start_new_assignment(name, points_possible, teacher)
+    def start_new_assignment(name, teacher)
         Assignment.create(
-            name: name, 
-            points_possible: points_possible, 
+            name: name,
             teacher: teacher, 
             student: self
             )
@@ -22,9 +21,30 @@ class Student < ActiveRecord::Base
     def complete_assignment(assignment)
         assignment.update(completed: true)
     end
+    
+    def grading_system(percentage)
+        if percentage < 60
+            "F"
+        elsif percentage < 70
+            "D"
+        elsif percentage < 80
+            "C"
+        elsif percentage < 90
+            "B"
+        else
+            "A"
+        end
+    end
+
         # student's overall grade??
     def overall_grade
-        self.assignments.average(:grade)
+        percentage = self.assignments.average(:grade).to_i
+        grading_system(percentage)
+    end
+
+    def class_grade(teacher)
+        percentage = self.assignments.where(teacher: teacher)&.average(:grade).to_i
+        grading_system(percentage)
     end
     
 end
