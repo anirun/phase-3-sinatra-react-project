@@ -36,10 +36,9 @@ class Student < ActiveRecord::Base
         end
     end
 
-        # student's overall grade?
-    def overall_grade
-        percentage = self.assignments.average(:grade).to_i
-        grading_system(percentage)
+        # student's overall grade point average?
+    def gpa
+        (self.assignments.average(:grade)/100 * 4).to_f
     end
         # student's grade in a specific teacher's class?
     def class_grade(teacher)

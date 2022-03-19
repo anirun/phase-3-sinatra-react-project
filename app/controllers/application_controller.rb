@@ -18,7 +18,6 @@ class ApplicationController < Sinatra::Base
     assignment = Assignment.find(params[:id])
     assignment.update(
       completed: params[:completed],
-      graded: params[:grade],
       grade: params[:grade]
     )
   end

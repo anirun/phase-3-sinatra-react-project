@@ -15,8 +15,7 @@ ActiveRecord::Schema.define(version: 2022_03_18_231348) do
   create_table "assignments", force: :cascade do |t|
     t.string "name"
     t.boolean "completed", default: false
-    t.boolean "graded", default: false
-    t.integer "grade", default: 0
+    t.integer "grade"
     t.integer "teacher_id"
     t.integer "student_id"
   end

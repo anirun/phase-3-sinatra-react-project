@@ -3,8 +3,7 @@ class CreateAssignments < ActiveRecord::Migration[6.1]
     create_table :assignments do |t|
       t.string :name
       t.boolean :completed, default: false
-      t.boolean :graded, default: false
-      t.integer :grade, default: 0
+      t.integer :grade
       t.integer :teacher_id
       t.integer :student_id
     end
