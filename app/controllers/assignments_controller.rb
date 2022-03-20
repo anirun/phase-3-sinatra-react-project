@@ -1,9 +1,14 @@
 class AssignmentsController < ApplicationController
     
     get "/assignments" do
-      Assignment.all.to_json(include: [student: {except: [:created_at]}], except: [:created_at])
+      assignments = Assignment.group(:name)
+      assignments.map { |assignment| assignment.name }.to_json
     end
   
+    get "assignments/:id" do
+      Assignment.find(params[:id]).to_json
+    end
+
     post "/assignments/" do
       assignment = Assignment.create(
         assignment_name: params[:assignment_name],
