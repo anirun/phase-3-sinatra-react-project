@@ -9,14 +9,6 @@ class Student < ActiveRecord::Base
     end
 
     # instance method
-        # start an assignment
-    def start_new_assignment(name, teacher)
-        Assignment.create(
-            name: name,
-            teacher: teacher, 
-            student: self
-            )
-    end
         # complete an assignment
     def complete_assignment(assignment)
         assignment.update(completed: true)

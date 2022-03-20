@@ -10,9 +10,9 @@ class Teacher < ActiveRecord::Base
 
     # instance methods
         # give student an assignment
-    def assign_assignment(name, student)
+    def assign_assignment(assignment_name, student)
         Assignment.create(
-            name: name,
+            assignment_name: assignment_name,
             teacher: self,
             student: student
             )

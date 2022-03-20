@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/students" do
-    students = Student.all.order(name: :asc)
+    students = Assignment.joins(:student)
     students.to_json
   end
 
