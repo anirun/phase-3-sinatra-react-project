@@ -1,9 +1,7 @@
 class AssignmentsController < ApplicationController
-    set :default_content_type, 'application/json'
     
     get "/assignments" do
-      assignments = Assignment.all.order(created_at: :asc)
-      assignments.to_json
+      Assignment.all.to_json(include: [student: {except: [:created_at]}], except: [:created_at])
     end
   
     post "/assignments/" do
