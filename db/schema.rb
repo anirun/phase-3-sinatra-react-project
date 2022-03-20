@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_18_231348) do
+ActiveRecord::Schema.define(version: 2022_03_18_231340) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "name"
     t.boolean "completed", default: false
     t.integer "grade"
-    t.integer "teacher_id"
     t.integer "student_id"
     t.datetime "created_at"
   end
@@ -25,11 +24,6 @@ ActiveRecord::Schema.define(version: 2022_03_18_231348) do
     t.string "name"
     t.string "grade"
     t.datetime "created_at"
-  end
-
-  create_table "teachers", force: :cascade do |t|
-    t.string "name"
-    t.string "subject"
   end
 
 end

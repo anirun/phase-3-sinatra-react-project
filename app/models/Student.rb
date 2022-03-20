@@ -1,6 +1,8 @@
 class Student < ActiveRecord::Base
-    has_many :assignments
-    has_many :teachers, through: :assignments
+    has_many :assignments, dependent: :destroy
+
+    validates :name, :grade, presence: true
+    validates :grade, numericality: {only_integer: true, greater_than: 5, less_than: 9}
 
     # class methods
         # who has the most assignments?
@@ -11,7 +13,7 @@ class Student < ActiveRecord::Base
     # instance method
         # complete an assignment
     def complete_assignment(assignment)
-        assignment.update(completed: true)
+        assignment.student_id == self.id ? assignment.update(completed: true) | return "Stop cheating!"
     end
     
     def grading_system(percentage)
@@ -28,13 +30,9 @@ class Student < ActiveRecord::Base
         end
     end
 
-        # student's overall grade point average?
-    def gpa
-        (self.assignments.average(:grade)/100 * 4).to_f
-    end
-        # student's grade in a specific teacher's class?
-    def class_grade(teacher)
-        percentage = self.assignments.where(teacher: teacher)&.average(:grade).to_i
+        # student's overall grade?
+    def overall_grade
+        percentage = (self.assignments.average(:grade)/100 * 4).to_f
         grading_system(percentage)
     end
     
