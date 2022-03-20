@@ -1,8 +1,7 @@
 class StudentsController < ApplicationController
-    set :default_content_type, 'application/json'
 
     get "/students" do
-        Student.all.to_json(include: [assignments: {except: [:created_at]}], except: [:created_at])
+        Student.all.to_json(include: [assignments: {except: [:created_at, :student_id]}], except: [:created_at])
     end
 
     get "/students/:id" do
