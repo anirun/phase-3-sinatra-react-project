@@ -1,7 +1,7 @@
 class AssignmentsController < ApplicationController
     
     get "/assignments" do
-      assignments = Assignment.group(:name)
+      assignments = Assignment.group(:name).order(created_at: :desc)
       assignments.map { |assignment| assignment.name }.to_json
     end
   
@@ -9,12 +9,10 @@ class AssignmentsController < ApplicationController
       Assignment.find(params[:id]).to_json
     end
 
-    post "/assignments/" do
-      assignment = Assignment.create(
-        assignment_name: params[:assignment_name],
-        teacher: params[:teacher],
-        student: params[:student]
-      )
+    post "/assignments" do
+      Student.all.map { |student| student.assignments.create(params) }
+      assignments = Assignment.group(:name).order(created_at: :desc)
+      assignments.first.name.to_json
     end
   
     patch "assignments/:id" do
