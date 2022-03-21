@@ -5,7 +5,7 @@ class AssignmentsController < ApplicationController
       assignments.map { |assignment| assignment.name }.to_json
     end
   
-    get "assignments/:id" do
+    get "/assignments/:id" do
       Assignment.find(params[:id]).to_json
     end
 
@@ -15,13 +15,12 @@ class AssignmentsController < ApplicationController
       assignments.first.name.to_json
     end
   
-    patch "assignments/:id" do
+    patch "/assignments/:id" do
       assignment = Assignment.find(params[:id])
       assignment.update(
-        completed: params[:completed],
         grade: params[:grade]
       )
     end
-  
+
   end
   

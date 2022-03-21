@@ -18,16 +18,7 @@ class StudentsController < ApplicationController
         end
     end
 
-    patch "/students/:id" do
-        student = Student.find(params[:id])
-        student.update(
-            name: params[:name],
-            grade: params[:grade]
-        )
-        student.to_json
-    end
-
-    delete "students/:id" do
+    delete "/students/:id" do
         student = Student.find(params[:id])
         student.destroy
         student.to_json
