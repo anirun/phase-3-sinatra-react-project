@@ -9,6 +9,15 @@ class StudentsController < ApplicationController
         student.to_json
     end
 
+    post "/students" do
+        @student = Student.create(params)
+        if @student.id
+            @student.to_json(include :assignments)
+        else
+            @student.errors.full_messages.to_sentence
+        end
+    end
+
     patch "/students/:id" do
         student = Student.find(params[:id])
         student.update(
