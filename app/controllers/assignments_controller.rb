@@ -1,8 +1,7 @@
 class AssignmentsController < ApplicationController
     
     get "/assignments" do
-      assignments = Assignment.group(:name).order(created_at: :desc)
-      assignments.map { |assignment| assignment.name }.to_json
+      Assignment.group(:name).order(created_at: :desc).to_json
     end
   
     get "/assignments/:id" do
