@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
 
     get "/students" do
-        Student.all.order(name: :asc).to_json(include: [assignments: {except: [:created_at, :student_id]}], except: [:created_at])
+        Student.all.to_json(include: [assignments: {except: [:created_at, :student_id]}], except: [:created_at])
     end
 
     get "/students/:id" do
@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
     post "/students" do
         @student = Student.create(params)
         if @student.id
-            @student.to_json(include :assignments)
+            @student.to_json
         else
             @student.errors.full_messages.to_sentence
         end

@@ -2,6 +2,7 @@ class Assignment < ActiveRecord::Base
     belongs_to :student
 
     validates :name, presence: true
+    validates :grade, numericality: {only_integer: true, less_than: 101, greater_than: -1}
     
     # instance methods
         # give student an assignment
