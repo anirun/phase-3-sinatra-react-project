@@ -1,16 +1,16 @@
 class StudentsController < ApplicationController
 
     get "/students" do
-        Student.all.order(name: :desc).to_json(include: [assignments: {except: [:created_at, :student_id]}], except: [:created_at])
+        Student.all.order(name: :asc).to_json(include: [assignments: {except: [:created_at, :student_id]}], except: [:created_at])
     end
 
     get "/students/:id" do
-        student = Student.find(params[:id])
+        student = Student.find_by_id(params[:id])
         student.to_json
     end
 
     get "/students/:id/assignments" do
-        student = Student.find(params[:id])
+        student = Student.find_by_id(params[:id])
         student.assignments.to_json
     end
 
